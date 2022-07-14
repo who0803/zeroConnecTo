@@ -260,54 +260,82 @@ body {
 }
 /* 로그인 */
 .login {
-  background: orangered;
-  border-radius: 15px 15px 15px 15px;
+  background: #ed552f radial-gradient(circle at right top, #e8852e , #ed552f);
+  border-radius: 5px 5px 5px 5px;
   padding: 10px;
-}
-.login-form {
-  position: relative;
-  background: #fff;
-  border-radius: 15px 15px 0 0;
-  padding: 10px 10px 0 10px;
-  margin-top: 10px;
-}
-.sign {
-  display: flex;
-  background: #fff;
-  border-radius: 0 0 15px 15px;
-  padding: 2px 10px;
-}
-.sign a {
-  padding: 8px 0 6px 0;
-}
-#userEmail,
-#userPwd {
-  max-width: 100px;
-}
-.user-email {
-  float: left;
-  margin-bottom: 5px;
-}
-.user-pwd {
-  float: left;
-  margin-bottom: 5px;
-}
-
-.login-button {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  top: 0;
-  right: 0;
+  box-shadow: 5px 5px 0 0 #aaa;
 }
 .login-title {
   color: #ff0;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
+  text-indent: 10px;
 }
-label {
-  min-width: 56px;
+.login-form {
+  margin-top: 10px;
+  background: #fff;
+  padding: 10px 10px 0 10px;  
+  border-radius: 5px 5px 0 0;
+
 }
+.login-form fieldset {
+  position: relative;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 10px;
+}
+.user-email {
+  margin-bottom: 5px;
+}
+
+.login-form label {
+  width: 56px;
+  display: inline-block;
+}
+.login-form input {
+  width: 90px;
+  height: 24px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 2px 2px 2px .5em;
+}
+
+.login-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 53px;
+  height: 53px;
+  padding: 0;
+  font-size: 1.3rem;
+  color: #fff;
+  background: #ed552f;
+  border: 0;
+  border-radius: 4px;
+}
+
+.sign {
+  display: flow-root;
+  background: #fff;
+  padding: 4px 10px;  
+  border-radius: 0 0 5px 5px;
+}
+.sign li:first-child {
+  float: left;
+}
+.sign li:last-child {
+  float: right;
+}
+
+.sign a {
+  display: block;
+  padding: 6px 0;
+  font-size: 1.3rem;
+  /* letter-spacing: -1px; */
+}
+.sign .icon-right-open::before {
+  color: #ed552f;
+}
+
 /* 슬로건 */
 .slogan {
   background: lime;
