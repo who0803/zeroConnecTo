@@ -5,8 +5,13 @@
 @import url("./fontello.css");
 
 /* 숨김 콘텐츠 */
-.sr-only {
+.sr-only {  
+  /* 접근성 마크업을 하면서 css 스타일 또한 중요한데 텍스트를 숨김처리하는 동시에 스크린리더기에서만 읽게 하도록 하는 방법 중 
+  clip속성을 이용하여 스타일링 한 방법. */
+  /*display: none;으로 숨기면 리더기가 못읽음*/
   position: absolute;
+  /* top: -998px; 음수값을 이용해 화면에서 날림. 문제: 리더기가 읽을 때 탑좌표 이동을 시도해서 스크롤을 맨 위로 올려버림*/
+  /* width, height 0으로 하면 컨텐츠가 존재하지 않는다고 판단해서 안읽음 */
   width: 1px;
   height: 1px;
   margin: -1px;
@@ -16,15 +21,17 @@
 }
 /* 기본 스타일 */
 *, *::before, *::after {
+  /* box-sizing의 초기값이 inherit이 아니고 컨텐트 박스이기 때문에 자식 요소인 가상요소 선택자도 박스 사이징 보더 박스로 줘야한다 */
   box-sizing: border-box;
 }
 /* 링크 스타일 */
 a {
-  color: inherit; 
+  color: inherit; /*body의 컬러를 캐스캐이딩*/
   text-decoration: none;
 }
 /* 본문 스타일 */
 html {
+  /* 아래에서 rem으로 쓰기 편하게 하려고 */
   font-size: 10px; /*가급적 16*/
 }
 body {
@@ -37,92 +44,96 @@ body {
 
 /* 레이아웃 */
 .header, .visual, .main, .slogan, .footer-inner {
-  width: 940px;
-  margin: 0 auto;
+  width: 940px;  /*  940px로 똑같이 맞춰줌 */
+  margin: 0 auto; /* 가운데 위치 */
 }
 /* 헤더 */
 .header {
   background: #fff;
-  position: relative;
-  padding: 8px 30px;
+  position: relative; /* 로고 앱솔루트하기 위해서 */
+  padding: 8px 30px;  /* 상하좌우 여백 마련해줌 */
   border-radius: 0 0 15px 15px;
 }
 /* 로고 */
 .logo {
   position: absolute;
-  top: 50px;
+  /* 가장 가까운 부모요소 중에서 스태틱이 아닌 .header 기준으로 */
+  top: 50px;  
   left: 65px;
   /* z-index: 1; */
 }
+
 /* 멤버링크 */
 .member {
-  text-align: right;
-  transform: translateX(8px);
+  text-align: right; /* 우측정렬 */
+  transform: translateX(8px); /* 우측으로 좀 땡김 */
 }
 .member li {
-  display: inline-block;
+  display: inline-block;  /*float나 flex로도 가로정렬할 수 있지만 인라인 블록으로도 할 수 있다.*/
   text-transform: uppercase;  /*상속되는 속성*/
 }
 .member a {
-  display: inline-block;
+  display: inline-block;  /* 패딩을 주기 위해서 인라인 블록 */
   padding: 8px;
 }
 /* 메인메뉴 */
 .navigation {
-  padding-bottom: 30px;
+  /* 서브메뉴가 앱솔루트라서 떠있기 때문에 밑에 공간을 확보 */
+  padding-bottom: 30px; 
 }
 .menu {
   background: #d16527 linear-gradient(to bottom,#edad2d 0%,#d16527 45%,#d16527 60%,#edad2d 100%); 
-  padding-left: 232px;
-  display: flow-root;
-  height: 47px; /*안바뀐나*/
+  padding-left: 232px;  /* 로고 공간 확보 */
+  display: flow-root; /*플로트 문제 해결*/
+  height: 47px; /*안바뀌는 레이아웃이라서 고정해줌.*/
   border-top: 2px solid #000;
   border-radius: 0 0 5px 5px;
 }
 .menu-item {
-  position: relative;
-  float: left;
+  position: relative; /*서브 메뉴 앱솔루트 기준*/
+  float: left;  /*이번에는 플로트로 가로 정렬*/
 }
-.menu-button {
-  line-height: 45px; /*가운데 처럼 보이게함 라인하이트 트릭*/
-  border: 0;
-  padding: 0 21px;
-  background: transparent;
+.menu-button { /*클릭시 다른 곳으로 이동하는게 아니고 아래 하위태그가 나옴 -> a태그 말고 버튼*/
+  line-height: 45px; /*가운데 처럼 보이게함 라인하이트 트릭/ 47(menu높이)-2(보더)=45*/
+  border: 0;  /*기본 버튼에 디폴트로 보더가 있음*/
+  padding: 0 21px;  /*좌우 패딩*/
+  background: transparent; /*배경 투명*/
   border-left: 2px solid #fff;
   font-size: 1.6rem;
   font-weight: 700;
   color: #fff;
-  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;  /*그림자로 테두리 표현*/
 }
 
-.menu-item.menu-item.is-active .menu-button{
+.menu-item.is-active .menu-button{  /*활성화된 메뉴아이템의 버튼 폰트색*/
   color: #ff0;
-  /* pos */
 }
-.menu-item.menu-item.is-active .menu-button::after { /*메뉴 밑줄*/
+.menu-item.is-active .menu-button::after { /*활성화된 메뉴아이템의 메뉴 밑줄*/
+  /* 보더바텀이 아니고 가상요소 선택자로 만들음 */
   content: "";
   display: block;
   background: #000;
   height: 2px;
 }
 
-.menu-item:nth-child(-n+3) .sub-menu {
-  left: 0;
+.menu-item:nth-child(-n+3) .sub-menu {  /*처음부터 3번째까지*/
+  left: 0; /*좌로밀착*/
 }
-.menu-item:nth-child(n+4) .sub-menu {
-  right: 0;
+.menu-item:nth-child(n+4) .sub-menu { /*4번째부터 끝까지*/
+  right: 0; /*우로밀착*/
 }
 .sub-menu {
-  position: absolute;
-  display: none;
-  top: 47px;
-  white-space: nowrap; /* 줄바꿈하지마 */
+  position: absolute; /* .menu-item이 기준*/
+  display: none;  /*기본적으로 안보이는 상태*/
+  top: 47px;  /*메뉴 아래로 빠져나옴*/
+  white-space: nowrap; /* 줄바꿈하지마/ 부모 요소의 크기를 벗어나서 줄바꿈되는 것을 없앰 / 그리고 앱솔루트기 때문에 크기 마음대로 조절해도 부모요소에 영향을 안미침 */
 }
 .sub-menu li {
-  display: inline-block;
+  display: inline-block; /*가로정렬*/
+  /* 인라인블록 공백문자생김. 근데 어차피 밑에서 더 벌릴거라 상관 없음. 공백문자 없애는 테크닉도 있음 */
 }
 .sub-menu a {
-  display: inline-block;
+  display: inline-block; /*크기조절 위해서*/
   padding: 8px 10px;
   margin-right: 10px;
 }
@@ -135,47 +146,51 @@ body {
   margin-right: .2em; 
 }
 .sub-menu a:hover::before, .sub-menu a:focus::before {
-  /* 폰텔로 css에서 카피함 */
+  /* 폰텔로 css에서 카피함 / 호버했을 때나 탭으로 포커스했을 때 이모티콘 변경*/
   content: '\e800';
 }
 
 .menu-item.is-active .sub-menu  {
+  /* 부모가 액티브되면 보이게함 */
   display: block;
 }
+
+
 /* 비주얼 */
 @keyframes moveEffect {
   0%{
     font-size: 12px;
     color: rgba(0, 0, 0, 0);
     /* padding-top: 0;
-    padding-left: 0; 리플로우*/
+    padding-left: 0; 리플로우에 영향을 줌*/
     /* top: 0;
-    left: 0;  리플로우*/
-    transform: translate(0, 0);
+    left: 0;  리플로우에 영향을 줌*/
+    transform: translate(0, 0); /*없어도 동작함*/
   }
   100%{
     font-size: 24px;
     color: rgba(0, 0, 0, 1);
     /* padding-top: 75px;
-    padding-left: 400px; 리플로우*/
+    padding-left: 400px; 리플로우에 영향을 줌*/
     /* top: 75px;
-    left: 400px; 리플로우*/
+    left: 400px; 리플로우에 영향을 줌*/
     transform: translate(400px, 75px);
   }
 }
 
 @keyframes fadeEffect {
-  0% {opacity: 1;}
+  0% {opacity: 1;}  /*보였다 안보이기*/
   100% {opacity: 0;}
 }
 .visual {
   background: pink;
-  height: 120px;
-  position: relative;
+  height: 120px;  /*높이 고정*/
+  position: relative; /*가상요소들 앱솔루트 기준잡기 위해서*/
 }
-.visual::before, .visual::after{
+.visual::before, .visual::after {
   content: '';
-  position: absolute;
+  position: absolute; /*기준은 .visual*/
+  /*visual에 꽉차게*/
   top: 0;
   left: 0;
   width: 100%;
@@ -185,7 +200,7 @@ body {
   animation-duration: 2000ms;
   animation-iteration-count: infinite;
   animation-direction: alternate; */
-  animation: fadeEffect 2000ms infinite alternate;
+  animation: fadeEffect 2000ms infinite alternate; /*애니메이션 숏컷*/
 }
 
 .visual::before{ 
@@ -195,9 +210,10 @@ body {
 }
 
 .visual::after{ 
+  /* 멀티 백그라운드 */
   background-image: url(./images/ani_flower_03.png) , url(./images/ani_flower_04.png);
   background-position: 300px 10px , 800px 10px;
-  animation-delay: 1000ms;
+  animation-delay: 1000ms;  /*애니메이션 딜레이줌*/
 }
 
 .visual-text {
@@ -206,9 +222,11 @@ body {
   animation-name: moveEffect;
   animation-duration: 2000ms;
   animation-fill-mode: forwards;
-  display: inline-block;  /*오버플로우 해결*/
+  display: inline-block;  /*애니메이션 실행했을 때 오버플로우 해결*/
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+
 /* 메인콘텐츠 */
 .main {
   display: flow-root;
