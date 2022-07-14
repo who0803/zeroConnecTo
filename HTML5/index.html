@@ -149,22 +149,25 @@
   <main class="main"><!--섹셔닝 컨텐츠-->
     <div class="group group1">
       <section class="login">
-        <h1>로그인</h1>
-        <form action="" method="post">
-          <div class="login-inner-box">
-            <div class="inputBox">
-              <label for="name">아이디</label>
-              <input type="text"  id="name"/>
-              <label for="pw">비밀번호</label>
-              <input type="password" id="pw"/>
+        <h2 class="login-title">로그인</h2>
+        <form method="POST" action="https://formspree.io/seulbinim@gmail.com" class="login-form">
+          <fieldset>
+            <legend class="sr-only">회원 로그인 폼</legend>
+            <div class="user-email">
+              <label for="userEmail">아이디</label><!--명시적인 레이블링-->
+              <input type="email" id="userEmail" required="required" placeholder="guest@zerobase.com"/>
             </div>
-            <button class="login-btn">로그인</button>
-          </div>
-          <div>
-            <a href="/" class="register">회원가입</a>
-            <a href="/" class="find">아이디/비밀번호 찾기</a>
-          </div>
+            <div class="user-pwd">
+              <label for="userPwd">비밀번호</label><!--명시적인 레이블링-->
+              <input type="password" id="userPwd" required="required" placeholder="8자리 이상"/>
+            </div>
+            <button type="submit" class="login-button">로그인</button>
+          </fieldset>
         </form>
+        <ul class="sign">
+          <li><a href="/" class="icon-right-open">화원가입</a></li>
+          <li><a href="/" class="icon-right-open">아이디 비밀번호 찾기</a></li>
+        </ul>
       </section>
     </div>
     <div class="group group2">그룹2</div>
