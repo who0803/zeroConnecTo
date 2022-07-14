@@ -335,6 +335,8 @@ body {
 .sign .icon-right-open::before {
   color: #ed552f;
 }
+
+
 /* 유효성 검사 배너 */
 .validation-list {
   margin-top: 25px;
@@ -356,6 +358,18 @@ body {
   color: #f00;
   background-size: 14px 14px, 100%; /*그라디언트는 안줌*/
 }
+
+/* 웹 관련 용어 */
+.term {
+  margin-top: 20px;
+  padding: 15px 15px 10px 15px;
+  border: 1px solid #000;
+}
+.term-title {
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
 /* 슬로건 */
 .slogan {
   background: lime;
