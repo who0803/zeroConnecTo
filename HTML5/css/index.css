@@ -349,3 +349,22 @@ body {
 .footer-inner {
   background: coral;
 }
+
+
+.validation {
+  margin-top: 20px;
+  width: 100%;
+}
+.validation .validation-li {
+  line-height: 20px;
+  width: inherit;
+  background: #ed552f radial-gradient(circle at right top, gray , lightgray);
+
+  border: 1px solid #000;
+  border-radius: 50px;
+  padding: 8px 0;
+  margin-bottom: 10px;
+}
+.validation .validation-li img {
+  margin: 0 15px;
+}
