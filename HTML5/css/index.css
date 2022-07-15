@@ -414,20 +414,38 @@ body {
 
 /* 검색 폼 */
 .search-form {
+  background: #ccc linear-gradient(to bottom, #ccc, #eee);
+  border: 1px solid #aaa;
+  border-radius: 10px 10px 0 0;
+  padding: 15px 25px 10px;
+  border-bottom-color: #fff;
+}
+.search-form fieldset {
   display: flex;
+  flex-flow: row nowrap;
   justify-content: space-around;
   align-items: center;
-  padding: 15px;
-  background: #999;
-  border-radius: 15px 15px 0 0;
-  border: 1px solid #000;
-  border-bottom: none;
 }
-input[type=submit] {
+.search-form input {
+  border: 1px solid #aaa;
+  height: 24px;
+  border: 4px 4px 0 0;
+  padding: 2px 2px 2px 0.5em;
+  width: 100%; /*문제해결됨 / 나머지 공간 전부차지 */
+  margin: 0 10px;
+}
+.search-form label, .search-button {
+  white-space: nowrap; /*개행 금지*/
+}
+.search-button {
   background: #000;
+  color: #fff;
+  padding: 2px 10px;
+  height: 24px;
+  border: 0;
   border-radius: 5px;
-  color: white;
 }
+
 /* 슬로건 */
 .slogan {
   background: lime;
