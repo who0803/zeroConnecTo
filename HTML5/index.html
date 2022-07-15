@@ -208,34 +208,54 @@
         </fieldset>
       </form>
       <div class="board">
-        <ul>
-          <li>
-            <button>공지사항</button>
-          </li>
-          <li>
-            <button>자료실</button>
-          </li>
-        </ul>
-        <button>더보기</button>
-        <section>
-          <h2 class="sr-only">게시판</h2>
-          <ul>
+        <section class="notice board-section">
+          <h2 class="sr-only notice-title" id="noticeTitle">공지사항</h2>
+          <button type="button" class="board-tab notice-tab">공지사항</button>
+          <ul class="notice-list board-panel">
             <li>
-              <a>HTML의 모든 것을 알려주마 샘플 활용법</a><div>2021.08.12</div>
+              <time datetime="2021-08-12T13:53:45">2021.08.12</time>
             </li>
             <li>
-              <a>HTML의 모든 것을 알려주마 샘플 활용법</a><div>2021.08.12</div>
+              <time datetime="2021-08-12T13:53:45">2021.08.12</time>
             </li>
             <li>
-              <a>HTML의 모든 것을 알려주마 샘플 활용법</a><div>2021.08.12</div>
+              <time datetime="2021-08-12T13:53:45">2021.08.12</time>
             </li>
             <li>
-              <a>HTML의 모든 것을 알려주마 샘플 활용법</a><div>2021.08.12</div>
+              <time datetime="2021-08-12T13:53:45">2021.08.12</time>
             </li>
             <li>
-              <a>HTML의 모든 것을 알려주마 샘플 활용법</a><div >2021.08.12</div>
+              <time datetime="2021-08-12T13:53:45">2021.08.12</time>
             </li>
           </ul>
+          <a href="#" class="icon-plus more board-more" title="공지사항" aria-labelledby="noticeTitle">더보기</a>
+        </section>
+        <section class="archive board-section is-select">
+          <h2 class="sr-only archive-title" id="archiveTitle">자료실</h2>
+          <buton type="button" class="board-tab archive-tab">자료실</buton>
+          <ul class="archive-list board-panel">
+            <li>
+              <a class="icon-dot-circled" href="/">디자인 사이트 링크 모음</a>
+              <time datetime="2021-08-12T13:53:45">2021.08.12</time>
+            </li>
+            <li>
+              <a class="icon-dot-circled" href="/">웹 접근성 관련 자료 모음</a>
+              <time datetime="2021-08-12T13:53:45">2021.08.12</time>
+            </li>
+            <li>
+              <a class="icon-dot-circled" href="/">예제 샘플 응용해보기</a>
+              <time datetime="2021-08-12T13:53:45">2021.08.12</time>
+            </li>
+            <li>
+              <a class="icon-dot-circled" href="/">웹 접근성 향상을위한 국가 표준 기술 가이드라인</a>
+              <time datetime="2021-08-12T13:53:45">2021.08.12</time>
+            </li>
+            <li>
+              <a class="icon-dot-circled" href="/">로얄티 프리 이미지 자료</a>
+              <time datetime="2021-08-12T13:53:45">2021.08.12</time>
+            </li>    
+          </ul>
+          <a href="/" class="icon-plus more board-more" title="자료실" aria-labelledby="archiveTitle">더보기</a>
         </section>
       </div>
     </div>
