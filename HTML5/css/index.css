@@ -427,9 +427,10 @@ body {
   align-items: center;
 }
 .search-form input {
+  -webkit-appearance: none;
   border: 1px solid #aaa;
   height: 24px;
-  border: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0; /*?*/
   padding: 2px 2px 2px 0.5em;
   width: 100%; /*문제해결됨 / 나머지 공간 전부차지 */
   margin: 0 10px;
