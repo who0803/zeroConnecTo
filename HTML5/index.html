@@ -171,7 +171,7 @@
         </ul>
       </section>
       <!-- 유효성 검사 배너 링크 그룹 -->
-      <h2 class="sr-only">유효성 검사 배너</h2>
+      <h2 class="sr-only">유효성 검사 배너</h2> <!--웹 접근성을 위해-->
       <ul class="validation-list">
         <li><a href="https://validator.w3.org/" target="_blank" rel="noopener noreferrer">W3C Markup Validation</a></li>
         <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener noreferrer">CSS Validation Service</a></li>
@@ -197,7 +197,18 @@
         </dl>
       </section>
     </div>
-    <div class="group group2">그룹2</div>
+    <div class="group group2">
+      <h2 class="sr-only">검색</h2>
+      <form method="POST" action="https://formspree.io/seulbinim@gmail.com" class="search-form">
+        <h2 href="/" class="icon-search">자료검색</h2>
+        <fieldset>
+          <legend>검색창</legend>
+          <label for="search" class="sr-only">아이디</label>
+          <input type="text" id="search" placeholder="검색어를 입력하세요."/>
+          <input type="submit" value="검색" />
+        </fieldset>
+      </form>
+    </div>
     <div class="group group3">그룹3</div>
   </main> 
   <article class="slogan">슬로건</article>
