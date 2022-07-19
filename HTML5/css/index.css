@@ -500,7 +500,7 @@ body {
   right: -8px;
   padding: 8px; 
 }
-.board-more::before {
+.more::before {
   color: hsla(110, 50%, 30%, 1);
 }
 
@@ -564,7 +564,7 @@ body {
   right: -8px;
   padding: 8px; 면적 넓힘
 }
-.board-more::before {
+.more::before {
   color: hsla(110, 50%, 30%, 1);
 }
 
@@ -641,14 +641,14 @@ body {
 /* 새소식 */
 .news {
   margin-top: 20px;
-  position: relative;
+  position: relative; /*더보기, 언더라인 기준*/
 }
 .news-title {
   color: #d16527;
   font-weight: 700;
   font-size: 1.5rem;
 }
-.news::before {
+.news::before { /*선 만드는 법*/
   content: '';
   position: absolute;
   top: 30px;
@@ -658,14 +658,20 @@ body {
   background: #aaa linear-gradient(to right, #aaa, #fff);
 }
 .news-link {
-  display: block;
-  /* border-top: 1px solid transparent;  마진 겹침 현상 해결*/
+  /*마진 겹침은 인접해있는 블록요소끼리만 일어난다. 그래서 해결 방법으로 인라인 블록 이용하기도 함.
+  여기에서는 마집겹침 현상 이용. 
+  */
+  /*background: pink; d백그라운드를 설정했을 때 a태그 안에 블록 요소 있을 때 안보임. 
+  inline 은 width 와 height 를 가질 수가 없습니당. 그렇다보니 backgroun-color 가 칠해질 공간도 없게 되는거
+  */
+  display: block; 
+  /*border-top: 1px solid transparent;   마진 겹침 현상 해결*/
 }
 .news-item {
   margin-top: 35px;
-  padding-left: 130px;
+  padding-left: 130px;  /*왼쪽에 공간 확보해서 그곳에 사진 넣음*/
   position: relative;
-  min-height: 115px; /*글 내용이 적었을 때 침법 예방*/
+  min-height: 115px; /*글 내용이 적었을 때 그림이 앱솔루트기 때문에 침법될 수 있는 거 방지*/
 }
 .news-item-title {
   font-weight: 600;
@@ -678,7 +684,7 @@ body {
 }
 
 .news-item-thumbnail {
-  position: absolute;
+  position: absolute; /*앱솔루트로 레이아웃 짬*/
   top: 0;
   left: 0;
   text-align: center; /*굳이 플렉스로 안해도됨*/
@@ -698,6 +704,58 @@ body {
   right: -8px;
   padding: 8px;
 }
+
+
+.gradient-effect {
+  padding: 10px;
+  background: linear-gradient(to bottom, gray, lightgray);
+  border-radius: 5px;
+}
+.event {
+  position: relative;
+  border-bottom: 1px solid gray;
+  padding-bottom: 10px;
+}
+.event-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+.accent-color {
+  color: #d16527;
+}
+.event-button-wrapper {
+  background: url('./images/back_forward.png');
+  width: 55px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.event-button-wrapper button {
+  display: inline-block; 
+  overflow: hidden; 
+  position: relative; 
+  z-index: -1; 
+  width: 18px;
+  height: 18px;
+}
+.event-button-next {
+  float: right;
+}
+
+#eventDetail {
+  margin-top: 10px;
+}
+
+.event-thumbnail {
+  margin-bottom: 5px;
+}
+.event-thumbnail img {
+  box-shadow: 5px 5px 0 0 gray;
+}
+
 
 /* 슬로건 */
 .slogan {
