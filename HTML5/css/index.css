@@ -722,7 +722,7 @@ body {
   border-bottom: 1px solid #aaa;
 }
 
-.event-title, .related-title {
+.event-title, .related-title, .favorite-title {
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -825,6 +825,70 @@ body {
 }
 
 
+/* 인기사이트 */
+
+.favorite {
+  position: relative;
+}
+.favorite-list {
+  margin-top: 10px;
+  background: yellow;
+  /* overflow: hidden; */
+  list-style-type: none;
+}
+.favorite-more {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  padding: 8px;
+
+}
+
+.favorite-list li {
+  background: pink;
+  margin-top: 10px;
+}
+.favorite-list li::before {
+  display: inline-block;
+  margin-right: 5px;
+  background: #aaa;
+  padding: 0 5px;
+  border-radius: 5px;
+  color: #fff;
+}
+.no1::before {
+  content: '1';
+}
+.no2::before {
+  content: '2';
+}
+.no3::before {
+  content: '3';
+}
+.no4::before {
+  content: '4';
+}
+.favorite-list li a {
+  /* margin-right: auto; */
+}
+.up, .down, .stop {
+  display: inline-block;
+  margin-left: auto;
+  /* float: right; */
+  background-color: white;
+  background-image: url('./images/rank.png');
+  background-position: 0 0;
+  width: 9px;
+  height: 11px;
+  line-height: 11px;
+}
+.stop {
+  background-position: 0 -26px;
+  height: 3px;
+}
+.down {
+  background-position: 0 -44px;
+}
 
 /* 슬로건 */
 .slogan {
