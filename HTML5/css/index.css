@@ -43,6 +43,23 @@ body {
   font-size: 1.4rem;
 }
 
+/* 스킵 내비게이션 */
+/* .skip-nav {
+
+} */
+.skip-nav a {
+  /* padding: 4px 0; */
+  display: none;
+  flex-flow: row nowrap;
+  justify-content: center;
+  background: #000;
+  color: #fff;
+}
+.skip-nav a:focus {
+  display: flex;
+}
+
+
 /* 레이아웃 */
 .header, .visual, .main, .slogan, .footer-inner {
   width: 940px;  /*  940px로 똑같이 맞춰줌 */
@@ -829,10 +846,10 @@ body {
 
 .favorite {
   position: relative;
+  margin-top: 20px;
 }
 .favorite-list {
   margin-top: 10px;
-  background: yellow;
   /* overflow: hidden; */
   list-style-type: none;
 }
@@ -845,18 +862,47 @@ body {
 }
 
 .favorite-list li {
-  background: pink;
-  margin-top: 10px;
+  position: relative;
+  margin-top: 8px;
+  counter-increment: number;
 }
 .favorite-list li::before {
-  display: inline-block;
-  margin-right: 5px;
-  background: #aaa;
-  padding: 0 5px;
-  border-radius: 5px;
+  content: counter(number); /*노가다 줄여줌*/
+  display: inline-flex;
+  padding: 2px 5px 1px;
+  font-size: 1.1rem;
   color: #fff;
+  background: #aaa;
+  border-radius: 4px;
+  min-width: 1.5em; /*1만 작은거 해결*/
+  justify-content: center;
+  margin-right: 0.5em;
 }
-.no1::before {
+
+.favorite-list a {
+
+  vertical-align: middle;
+}
+.favorite-list em {
+
+  position: absolute;
+  width: 9px;
+  height: 11px;
+  right: 0;
+  top: 50%;
+  margin-top: -5px; /*높이의 절반*/
+  background-image: url(./images/rank.png);
+  background-repeat: no-repeat;
+}
+.favorite-list .stop {
+  background-position: 0 50%;
+}
+.favorite-list .down {
+  background-position: 0 100%; /*이따 한번 봐바*/
+}
+
+
+/* .no1::before {
   content: '1';
 }
 .no2::before {
@@ -869,12 +915,10 @@ body {
   content: '4';
 }
 .favorite-list li a {
-  /* margin-right: auto; */
 }
 .up, .down, .stop {
   display: inline-block;
   margin-left: auto;
-  /* float: right; */
   background-color: white;
   background-image: url('./images/rank.png');
   background-position: 0 0;
@@ -888,7 +932,7 @@ body {
 }
 .down {
   background-position: 0 -44px;
-}
+} */
 
 /* 슬로건 */
 .slogan {
