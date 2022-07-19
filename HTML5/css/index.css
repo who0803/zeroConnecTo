@@ -44,21 +44,26 @@ body {
 }
 
 /* 스킵 내비게이션 */
-/* .skip-nav {
 
-} */
-.skip-nav a {
-  /* padding: 4px 0; */
-  display: none;
-  flex-flow: row nowrap;
-  justify-content: center;
+/* .skip-nav {
+  display: block;
+  text-align: center;
   background: #000;
   color: #fff;
+  line-height: 0;
+  font-size: 0;
 }
-.skip-nav a:focus {
-  display: flex;
+.skip-nav span {
+  display: inline-block;
+  padding: 0;
+  height: 0;
+  overflow: hidden;
 }
-
+.skip-nav:focus span {
+  height: auto;
+  padding: 8px;
+  box-shadow: 1px 1px 0 0 red, -1px -1px 0 0 red;
+} */
 
 /* 레이아웃 */
 .header, .visual, .main, .slogan, .footer-inner {
@@ -936,9 +941,25 @@ body {
 
 /* 슬로건 */
 .slogan {
-  background: lime;
-  /* clear: both;
-  margin-top: 200px; */
+  display: flex;
+  align-items: center;
+
+}
+.slogan-title {
+  transform: translateY(15px);
+  min-width: 110px;
+  height: 83px;
+  background-image: url(./images/coffee.png);
+  margin: 0 20px;
+}
+
+
+
+.slogan-content {
+  width: 75%;
+  font-size: 1.5rem;
+  color: #a09784;
+  line-height: 1.5;
 }
 /* 푸터 */
 .footer {
