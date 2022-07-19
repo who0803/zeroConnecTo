@@ -705,56 +705,101 @@ body {
   padding: 8px;
 }
 
-
+/* 신규 이벤트 및 관련사이트 */
 .gradient-effect {
-  padding: 10px;
-  background: linear-gradient(to bottom, gray, lightgray);
+  border: 1px solid #aaa;
   border-radius: 5px;
-}
-.event {
-  position: relative;
-  border-bottom: 1px solid gray;
-  padding-bottom: 10px;
-}
-.event-title {
-  font-size: 1.6rem;
-  font-weight: 900;
+  padding: 10px;
+  background: #ccc linear-gradient(to bottom, #ccc, #eee);
 }
 .accent-color {
   color: #d16527;
 }
-.event-button-wrapper {
-  background: url('./images/back_forward.png');
-  width: 55px;
-  height: 18px;
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  right: 0;
+.event {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  border-bottom: 1px solid #aaa;
 }
 
-.event-button-wrapper button {
-  display: inline-block; 
-  overflow: hidden; 
-  position: relative; 
-  z-index: -1; 
-  width: 18px;
-  height: 18px;
+.event-title {
+  font-size: 1.5rem;
+  font-weight: 700;
 }
+/* .event-button-wrapper {
+  margin-left: auto;
+
+  height: 18px;
+  overflow: hidden;
+
+  display: flex;
+  gap: 6px;
+}
+.event button {
+  width: 19px;
+  height: 0 !important;
+  border: 0;
+  padding: 18px 0 0 0;
+  background-color: transparent;
+  background-image: url('./images/back_forward.png');
+  background-repeat: no-repeat ;
+}
+.event button:focus {
+  outline-offset: -2px;
+}
+
 .event-button-next {
-  float: right;
+  
+  background-position: -36px 0; 
+} */
+/* 위하고 안겹쳐서 가능. 숏컷말고 속기법으로 해결 */
+/*이미지 스프라이트*/
+
+.event-button-container {
+  padding: 4px; /*d*/
+
+  margin-left: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 6px;
+  transform: translate(4px, -4px);
+}
+.event-button-container button {
+  width: 19px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  background-color: transparent ;
+  background-image: url(./images/back_forward.png);
+  background-repeat: no-repeat;
+}
+.event-button-container .event-button-next {
+  background-position: -36px 0;
 }
 
-#eventDetail {
-  margin-top: 10px;
+
+
+.event-detail {
+  width: 100%;
 }
+
 
 .event-thumbnail {
-  margin-bottom: 5px;
+  margin: 2px 0 10px;
 }
+.event-brief {
+  margin: 10px 0;
+}
+
 .event-thumbnail img {
-  box-shadow: 5px 5px 0 0 gray;
+  border: 1px solid #aaa;
+  box-shadow: 5px 5px 0 0 #bbb;
 }
+
+
+
+
+
 
 
 /* 슬로건 */
