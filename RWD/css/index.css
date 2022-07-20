@@ -37,6 +37,10 @@
   justify-content: flex-end;
 }
 
+input[type="search"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
 /* 공통 검색 폼 */
 .searchForm__group {
   display: flex;
