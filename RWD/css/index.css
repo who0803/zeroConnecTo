@@ -11,17 +11,15 @@
 /* 모든 디바이스 (All Device) */
 /* 공통 로고*/
 .appHeader {
-  padding-top: 50px;
   position: relative;
-  padding-left: 20px;
-  padding-right: 20px;
-  display: flow-root;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: var(--spacing-base) var(--spacing-md);
+  gap: var(--spacing-base);
 }
 .logo {
   width: 12.75rem;    /* 204px */
   height: 3.6875rem; /* 59px */
-  float: left;
-  transform: translateY(-1rem);
 }
 
 .logo__link {
@@ -30,64 +28,110 @@
   height: 100%;
   background: url(./../images/webcafe-logo.png) no-repeat 0 0/100%;
 }
+
+
+/* 공통 멤버서비스 */
 .memberOnly {
-  position: absolute;
   display: flex;
-  top: 10px;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
 }
 
+/* 공통 검색 폼 */
 .searchForm__group {
   display: flex;
+  flex-flow: row nowrap;
+
 }
-.formInput {
-  flex-grow: 1;
+.searchForm__group .formInput {
+  margin-right: var(--spacing-xs);
 }
-.formInput__input {
+.searchForm__group .formInput__input {
   width: 100%;
+  height: 2rem;
+  border: 1px solid var(--silver);
+  background: var(--white);
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.75rem; 
+}
+
+.button {
+  cursor: pointer;
+  height: 2rem;
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.75rem; 
+  /* 필과 아웃라인이 보더 정함 */
+  white-space: nowrap; /*검색이라는 글씨가 세로 안되게*/
+  font-size: var(--text-sm);
+}
+
+.button--none {
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.button--fill {
+  background: var(--secondary-color);
+  color: var(--white);
+  border: 0;
+}
+
+.button--outline {
+  background: transparent;
+  color: var(--secondary-color);
+  border: 1px solid currentColor;
 }
 
 /* 모바일 디바이스 (Mobile Device) */
 @media (min-width: 320px) and (max-width: 768px) {
+  /* 모바일 헤더 */
   .appHeader {
-    padding-left: 20px;
-    padding-right: 20px;
+    background: var(--primary-color);
+    color: var(--white); /*상속*/
   }
+  /* 모바일 멤버서비스 */
   .memberOnly {
-    right: 20px;
+    order: -1;
+    font-size: var(--text-sm);
   }
+  /* 모바일 검색 폼 */
+  .searchForm__group .formInput {
+    flex-grow: 1;
+  }
+  /* 모바일 메인메뉴 제어버튼 */
   .button--burger {
-    width: 32px;
-    height: 32px;
     position: absolute;
-    top: 50px;
-    right: 20px;
-  }
-
-  .searchForm{
-    float: left;
-    width: 100%;
-    margin-top: 10px;
+    top: 3.75rem; /*60/16*/
+    right: var(--spacing-md);
   }
 }
 
 /* 데스크탑 디바이스 (Desktop Device) */
 @media (min-width: 768px) {
+  /* 데스크탑 헤더 */
   .appHeader {
-    padding-left: 109px;
-    padding-right: 109px;
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
   }
-  .memberOnly {
-    right: 109px;
+  /* 데스크탑 로고 */
+  .logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /*중간 유지*/
   }
-  .searchForm{
-    float: right;
-    min-width: 480px;
-
+  /* 데스크탑 검색폼 */
+  .searchForm__group {
+    justify-content: flex-end;
   }
+  .searchForm__group .formInput {
+    width: 25rem;
+  }
+  /* 데스크탑 메인메뉴 제어버튼 */
   .button--burger {
     display: none;
   }
-
 }
 
 /* 고해상도 배경이미지 미디어쿼리 */
