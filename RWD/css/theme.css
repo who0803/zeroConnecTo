@@ -1,4 +1,4 @@
-:root{
+:root{  /*변수 선언하는 법*/
   --white: #fff;
   --black: #000;
   --silver: #767676;
@@ -13,6 +13,7 @@
   --brown: #988574;
   --blue: #6aaee6;
 
+  /* 변수 재할당해서 사용 */
   --accent-book: var(--green);
   --accent-news: var(--yellow);
   --accent-board: var(--brown);
