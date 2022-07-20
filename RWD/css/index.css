@@ -2,3 +2,102 @@
 @import url(./a11y.css);
 @import url(./theme.css);
 @import url(./base.css);
+
+/* 공통 아이콘 (Font Awesome) */
+.far {
+  margin-right: var(--spacing-xs);
+}
+
+/* 모든 디바이스 (All Device) */
+/* 공통 로고*/
+.appHeader {
+  padding-top: 50px;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flow-root;
+}
+.logo {
+  width: 12.75rem;    /* 204px */
+  height: 3.6875rem; /* 59px */
+  float: left;
+  transform: translateY(-1rem);
+}
+
+.logo__link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(./../images/webcafe-logo.png) no-repeat 0 0/100%;
+}
+.memberOnly {
+  position: absolute;
+  display: flex;
+  top: 10px;
+}
+
+.searchForm__group {
+  display: flex;
+}
+.formInput {
+  flex-grow: 1;
+}
+.formInput__input {
+  width: 100%;
+}
+
+/* 모바일 디바이스 (Mobile Device) */
+@media (min-width: 320px) and (max-width: 768px) {
+  .appHeader {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .memberOnly {
+    right: 20px;
+  }
+  .button--burger {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+  }
+
+  .searchForm{
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+/* 데스크탑 디바이스 (Desktop Device) */
+@media (min-width: 768px) {
+  .appHeader {
+    padding-left: 109px;
+    padding-right: 109px;
+  }
+  .memberOnly {
+    right: 109px;
+  }
+  .searchForm{
+    float: right;
+    min-width: 480px;
+
+  }
+  .button--burger {
+    display: none;
+  }
+
+}
+
+/* 고해상도 배경이미지 미디어쿼리 */
+@media  (-webkit-min-device-pixel-ratio: 2),
+        (min--moz-device-pixel-ratio: 2),
+        (-o-min-device-pixel-ratio: 2/1), 
+        (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+  .logo__link {
+    background-image: url(./../images/webcafe-logo@2x.png);
+  }
+}
