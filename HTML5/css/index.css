@@ -47,13 +47,12 @@ body {
 .skip-nav {
   position: absolute;
   width: 100%;
-  text-align: center;
+  text-align: center; /*텍스트 가운데 정렬*/
   padding: 4px 0;
-  transform: translateY(-110%);
+  transform: translateY(-110%); /*포커스하기 전에는 위로 올려서 안보이게*/
   background: #000;
   color: #fff;
-  z-index: 10;
-
+  z-index: 10; /*맨 위로 올려줌*/
 }
 .skip-nav span {
   display: inline-block;
@@ -61,9 +60,9 @@ body {
   border: 2px solid #00f;
   border-radius: 4px;
 }
-.skip-nav:focus {
+.skip-nav:focus { /*a태그의 아웃라인 사라짐*/
   outline: 0;
-  transform: none;
+  transform: none;  /*윈위치*/
 }
 
 /* 레이아웃 */
@@ -749,20 +748,22 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
 }
-/* .event-button-wrapper {
-  margin-left: auto;
 
-  height: 18px;
+
+.event-button-wrapper {
+  margin-left: auto;  /*왼쪽 마진 다 차지해서 오른쪽으로 정렬*/
+
+  height: 18px; /*부모에 높이 설정하고 오버플로우 히든*/
   overflow: hidden;
 
   display: flex;
   gap: 6px;
 }
-.event button {
+.event button { /*ir 기법중 패딩 트릭*/
   width: 19px;
-  height: 0 !important;
+  height: 0 !important; /*높이 0으로 하고*/
   border: 0;
-  padding: 18px 0 0 0;
+  padding: 18px 0 0 0;  /*패딩을 줌*/
   background-color: transparent;
   background-image: url('./images/back_forward.png');
   background-repeat: no-repeat ;
@@ -774,36 +775,36 @@ body {
 .event-button-next {
   
   background-position: -36px 0; 
-} */
+}
 /* 위하고 안겹쳐서 가능. 숏컷말고 속기법으로 해결 */
 /*이미지 스프라이트*/
 
-.event-button-container {
-  padding: 4px; /*d*/
-
-  margin-left: auto;
+/* .event-button-container {
+  padding: 4px; 탭으로 포커스시 아웃라인 자연스럽게
+  margin-left: auto; 왼쪽의 마진 전부 차지해서 오른쪽으로 이동함
   display: flex;
   flex-flow: row nowrap;
   gap: 6px;
   transform: translate(4px, -4px);
 }
 .event-button-container button {
-  width: 19px;
+  정렬한 다음에 그냥 딱 보더 패딩 다 필요없이 콘텐츠 크기만 가지게 하고 배경색 투명으로 하고 배경 이미지 설정 
+  width: 19px; 버튼 크기만큼 설정하고
   height: 18px;
-  padding: 0;
+  padding: 0;   패딩, 보더 0
   border: 0;
-  background-color: transparent ;
+  background-color: transparent ; 투명하게
   background-image: url(./images/back_forward.png);
   background-repeat: no-repeat;
 }
 .event-button-container .event-button-next {
-  background-position: -36px 0;
-}
+  background-position: -36px 0; 스프라이트 이미지 기법
+} */
 
 
 
 .event-detail {
-  width: 100%;
+  width: 100%;  /*한 라인 다 차지하게 해서 wrap으로 줄바꿈함*/
 }
 
 
@@ -830,20 +831,21 @@ body {
   background: #fff;
   border: 1px solid #aaa;
   border-radius: 5px;
-  height: 27px; /*보더 포함*/
+  height: 27px; /*보더 포함/ 호버나 포커스 안했을 때 높이 정해줌*/
   overflow: hidden;
   transition: height 400ms, padding 400ms 400ms; /*늘 있어야하는 선택자에 걸어야함. 그래야 호버했을 때하고 뺐을 때도 동작함. 딜레이걸음*/
 }
 
 .related-list:hover, .related-list:focus { /*텝인덱스 해줘서 포커스 가능*/
+  /*이벤트 일어나야 높이, 패딩 설정*/
   height: 147px;
   padding: 10px 0;
 }
 
 
 .related-list a {
-  display: block; /*글자가 아닌공간 눌러도*/
-  line-height: 25px;
+  display: block; /*글자가 아닌공간 눌러도 이동할 수 있게 a를 기준으로*/
+  line-height: 25px;  /*라인하이트로 높이 조절*/
   padding: 0 0 0 20px;
 }
 
@@ -860,17 +862,16 @@ body {
   list-style-type: none;
 }
 .favorite-more {
-  position: absolute;
+  position: absolute; /*우상단 이동*/
   top: 2px;
   right: 2px;
   padding: 8px;
-
 }
 
 .favorite-list li {
   position: relative;
   margin-top: 8px;
-  counter-increment: number;
+  counter-increment: number;  /*순서대로*/
 }
 .favorite-list li::before {
   content: counter(number); /*노가다 줄여줌*/
@@ -887,75 +888,51 @@ body {
 
 .favorite-list a {
 
-  vertical-align: middle;
+  vertical-align: middle; /*텍스트 수직 가운데 정렬*/
 }
 .favorite-list em {
 
   position: absolute;
-  width: 9px;
+  /* 크기 설정하고 */
+  width: 9px;   
   height: 11px;
   right: 0;
-  top: 50%;
+  top: 50%; /*50%주고 높이의 절반만큼 빼준다.*/
   margin-top: -5px; /*높이의 절반*/
   background-image: url(./images/rank.png);
   background-repeat: no-repeat;
 }
 .favorite-list .stop {
-  background-position: 0 50%;
+  background-position: 0 50%; /*백그라운드 포지션도 퍼센트 활용하면 효율적*/
 }
 .favorite-list .down {
   background-position: 0 100%; /*이따 한번 봐바*/
 }
 
 
-/* .no1::before {
-  content: '1';
-}
-.no2::before {
-  content: '2';
-}
-.no3::before {
-  content: '3';
-}
-.no4::before {
-  content: '4';
-}
-.favorite-list li a {
-}
-.up, .down, .stop {
-  display: inline-block;
-  margin-left: auto;
-  background-color: white;
-  background-image: url('./images/rank.png');
-  background-position: 0 0;
-  width: 9px;
-  height: 11px;
-  line-height: 11px;
-}
-.stop {
-  background-position: 0 -26px;
-  height: 3px;
-}
-.down {
-  background-position: 0 -44px;
-} */
+
 
 /* 슬로건 */
 .slogan {
   position: relative;
-  padding: 10px 100px 10px 180px;
-
+  padding: 10px 100px 10px 180px; /*텍스트가 들어갈 장소 만들어줌*/
+  margin-top: -100px;
 }
 .slogan-title {
-  position: absolute;
-  left: 35px;
-  bottom: -25px;
-  width: 110px;
+  /*앱솔루트의 기준들*/
+  /* left: 35px;
+  position: absolute; 
+  bottom: -25px; */
+  transform: translate(-140px, 90px); 
+  /* filter: grayscale(80%); */
+
+
+  width: 110px; /*사이즈 조절*/
   height: 83px;
-  line-height: 83px;
+  line-height: 83px;  /*텍스트 중앙 정렬*/
   text-align: center;
 }
-.slogan-title::after {
+.slogan-title::after {  /*가상요소 선택자로 배경이미지 만들어주고 덮어씌움*/
   content: "";
   position: absolute;
   width: 100%;
@@ -972,23 +949,74 @@ body {
   line-height: 1.5;
 }
 
-.slogan-content q::before {
+.slogan-content q::before { /*앞에 쌍따옴표*/
   display: inline-block;
   font-size: 2.5rem;
   transform: translateY(5px);
 }
-.slogan-content q::after {
+.slogan-content q::after {  /*뒤에 쌍따옴표 없애줌*/
   content: "";
 }
 
 /* 푸터 */
 .footer {
-  background: url(./images/bg_flower.png) no-repeat 50% 0, #ccc linear-gradient(to bottom, #ccc 0%, #eee 50%, #fff 60%, #fff 100%); /*배경*/
+  background: #ccc linear-gradient(to bottom, #ccc 0%, #eee 50%, #fff 60%, #fff 100%); /*배경*/
 
 }
 .footer-inner {
-  background: coral;
-  height: 150px;
+  display: grid;
+  grid-template-columns: 140px 1fr 120px;
+  /* grid-template-rows: auto auto auto; 오토일 때는 생략해도 됨 */
+  padding: 20px 0;
+}
+/* 푸터로고 */
+.footer-logo {
+  /* grid-row-start: 1;
+  grid-column-start: 1;
+  grid-row-end: 4;
+  grid-column-end: 2; */
+
+  /* grid-row: 1/4;
+  grid-column: 1/2; */
+
+  grid-area: 1/1/4/2;
+  align-self: center; /*y축 정렬*/
+  justify-self: center; /*x축 정렬*/
 }
 
+/* 가이드 링크 */
+.guide-list {
+  grid-area: 1/2/2/3;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  background: #7b8385;
+  color: #fff;
+  border-radius: 20px;
+  padding: 4px 20px;
+  margin: 5px 20px;
+  /*대문자 변환같은 거는 한번 봐두는 정도*/
+  text-transform: uppercase;
+  /*font-variant: small-caps; 소문자 크기*/
+}
+.guide-list a {
+  display: block;
+  padding: 6px 10px;
+}
+/* 주소 */
 
+.address {
+  grid-area: 2/2/3/3;
+  margin: 5px 20px;
+}
+
+/* 저작권 */
+.copyright {
+  grid-area: 3/2/4/3;
+  margin: 5px 20px;
+}
+
+/* 배지그룹 */
+.badge-container {
+  grid-area: 1/3/4/4;
+}
