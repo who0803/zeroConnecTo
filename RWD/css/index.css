@@ -17,7 +17,7 @@
   padding: var(--spacing-base) var(--spacing-md);
   gap: var(--spacing-base);
 }
-.logo {
+.logo { /*로고는 고정길이*/
   width: 12.75rem;    /* 204px */
   height: 3.6875rem; /* 59px */
 }
@@ -101,14 +101,62 @@ input[type="search"] {
   }
   /* 모바일 검색 폼 */
   .searchForm__group .formInput {
-    flex-grow: 1;
+    flex-grow: 1;/*이거는 공용으로 되어있음*/
   }
   /* 모바일 메인메뉴 제어버튼 */
-  .button--burger {
+  .buttonWrapper {
+    padding: 0.25rem;
+    overflow: hidden;
     position: absolute;
     top: 3.75rem; /*60/16*/
     right: var(--spacing-md);
+    transform: translate(0.25rem, -0.25rem);
   }
+  .button--burger {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+  }
+  .button--burger:focus {
+    outline-offset: 2px;
+  }
+  .button--burgerBarTop,
+  .button--burgerBarMiddle,
+  .button--burgerBarBottom {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    border-radius: 0.25rem;
+    background: var(--white);
+    left: 0;
+    transition: all 400ms;
+  }
+  .button--burgerBarTop {
+    top: 0;
+  }
+  .button--burgerBarMiddle {
+    top: 50%;
+    transform: translateY(-50%);
+    
+  }
+  .button--burgerBarBottom {
+    top: 100%;
+    transform: translateY(-100%);
+  }
+
+  .button--burger.is--active .button--burgerBarMiddle {
+    transform: translate(-150%, -50%);
+  }
+  .button--burger.is--active .button--burgerBarTop {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .button--burger.is--active .button--burgerBarBottom {
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+
 }
 
 /* 데스크탑 디바이스 (Desktop Device) */
@@ -136,6 +184,9 @@ input[type="search"] {
   .button--burger {
     display: none;
   }
+
+
+
 }
 
 /* 고해상도 배경이미지 미디어쿼리 */
