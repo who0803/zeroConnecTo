@@ -159,11 +159,28 @@ input[type="search"] {
 }
 
 
-
-
-
-
-
+/* 공통 추천  서적 */
+.book {
+  background: pink;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.book__title {
+  align-self: flex-start;
+}
+.book__coverCaption {
+  text-align: center;
+}
+.book__info {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.ratingStar {
+  width: 100%;
+  text-align: center;
+}
 
 
 
@@ -258,6 +275,21 @@ input[type="search"] {
   .menu__item {
     border-bottom: 1px solid var(--silver); /*눌러도 반응 없음 */
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 /* 데스크탑 디바이스 (Desktop Device) */
