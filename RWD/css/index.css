@@ -250,24 +250,29 @@ input[type="search"] {
 .board {
   position: relative;
 }
+.board__item {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: var(--spacing-xs);
+}
+
+.board__link {
+  width: calc(100% - 6rem);
+  white-space: nowrap; /*개행금지*/
+  overflow: hidden;     /*넘치는거 히든*/
+  text-overflow: ellipsis /*말줄임*/
+}
+.board__date {
+  flex-grow: 1;
+  text-align: right;
+}
+
 .board__more {
   position: absolute;
   top: 0;
   right: 0;
-}
-.board__item {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  margin-bottom: var(--spacing-base);
-}
-.board__link {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis
-}
-.board__date {
-  min-width: 5.312rem;
+  padding: var(--spacing-xs);
+  transform: translateX(var(--spacing-xs));
 }
 
 /* 공통 인기사이트 */
