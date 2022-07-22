@@ -311,6 +311,16 @@ input[type="search"] {
 }
 
 
+/* 공통 푸터 */
+.appFooter{
+  background: var(--primary-color);
+  color: var(--white);
+  padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.address{
+  margin-bottom: var(--spacing-base);
+}
 
 
 
@@ -420,10 +430,19 @@ input[type="search"] {
 
   /* 모바일 메인 콘텐츠 */
   .appMain {
-    background: yellow;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: var(--spacing-base);
+  }
+  .book, .news, .board, .favorite, .twitter {
+    width: 100%;
+  }
+
+  /* 모바일 푸터 */
+  .address {
     display: flex;
     flex-flow: column nowrap;
-    gap: var(--spacing-base);
   }
 }
 
@@ -431,30 +450,15 @@ input[type="search"] {
 /* 모바일 Medium Size (640px 이상) */
 @media (min-width: 640px) and (max-width: 768px) {
   /* 모바일(MD) 메인 콘텐츠 */
-  .appMain {
-    background: pink;
-    flex-flow: row wrap;
-    justify-content: space-between;
+
+  .book {
+    order: 1;
   }
   .news {
-    order: 1;
-    width: 100%;
+    order: -1;
   }
-  .board {
-    order: 2;
-    width: 45%;
-  }
-  .favorite {
-    order: 3;
-    width: 45%;
-  }
-  .twitter {
-    order: 4;
-    width: 45%;
-  }
-  .book {
-    order: 5;
-    width: 45%;
+  .book, .board, .favorite, .twitter {
+    width: 48%;
   }
 
 
@@ -514,7 +518,6 @@ input[type="search"] {
     max-width: var(--container-width);
     margin-left: auto;
     margin-right: auto;
-    background: yellow;
   }
 
   /* 데스크탑 트위터 */
@@ -526,33 +529,36 @@ input[type="search"] {
 
   /* 데스크탑 메인 콘텐츠 */
   .appMain {
-    background: skyblue;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    gap: 1rem;
+    grid-template-rows: auto;
+    gap: var(--spacing-base);
+    grid-template-areas: "news news news news news news news news news news news news"
+                         "book book book book twitter twitter twitter twitter twitter favorite favorite favorite"
+                         "book book book book . board board board board board board board";
   }
 
-  .news {
-    grid-column:1/13;
-    grid-row:1/6;
-  }
   .book {
-    grid-column:1/5;
-    grid-row:6/13;
+    grid-area: book;
   }
-  .favorite {
-    grid-column:5/8;
-    grid-row:6/8;
-  }
-  .twitter {
-    grid-column:8/12;
-    grid-row:6/8;
+  .news {
+    grid-area: news;
   }
   .boad {
-    grid-column:6/13;
-    grid-row:8/13;
+    grid-area: boad;
   }
+  .favorite {
+    grid-area: favorite;
+  }
+  .twitter {
+    grid-area: twitter;
+  }
+
+  /* 데스크탑 푸터 */
+  .appFooter {
+    text-align: center;
+  }
+
 }
 
 /* 고해상도 배경이미지 미디어쿼리 */
