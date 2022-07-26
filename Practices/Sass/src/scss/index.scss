@@ -1,8 +1,12 @@
-$color-primary: pink;
-$url-images: "/assets/images/";
-$w: 200px;
+// @import "./reset";  //파일명만
+@use "./utils" as *; 
+// @use "./utils/var" as *;  // 원래 변수이름 그대로 사용하겠다는 뜻
+
 
 .box {
+  // width: var.$w;
+  // margin-left: var.$w;
+  // background: var.$color-primary url(var.$url-images + "bg.jpg");
   width: $w;
   margin-left: $w;
   background: $color-primary url($url-images + "bg.jpg");

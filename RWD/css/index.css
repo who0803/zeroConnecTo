@@ -528,29 +528,29 @@ input[type="search"] {
 
 
   /* 데스크탑 메인 콘텐츠 */
-  .appMain {
+  .appMain{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
-    gap: var(--spacing-base);
     grid-template-areas: "news news news news news news news news news news news news"
                          "book book book book twitter twitter twitter twitter twitter favorite favorite favorite"
                          "book book book book . board board board board board board board";
+    gap: var(--spacing-base);
   }
 
-  .book {
+  .book{
     grid-area: book;
   }
-  .news {
+  .news{
     grid-area: news;
   }
-  .boad {
-    grid-area: boad;
+  .board{
+    grid-area: board;
   }
-  .favorite {
+  .favorite{
     grid-area: favorite;
   }
-  .twitter {
+  .twitter{
     grid-area: twitter;
   }
 
