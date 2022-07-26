@@ -61,6 +61,17 @@ $breakpoints: (
 
 $break: 768px;
 
+@mixin mobile {
+  @media (max-width: ($break - 1)) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: $break) {
+    @content;
+  }
+}
+
 @mixin media($media) {
   @if $media == "mobile" {
     @media (max-width: ($break - 1)) {

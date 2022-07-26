@@ -1,1 +1,36 @@
-// sprite.scss
+@use "./color" as var;  // 이번에 한번 바 써본
+@use "./unit" as *; // rem힘수
+
+
+$colors: (
+  "Book": var.$green,
+  "News": var.$yellow,
+  "Board": var.$brown,
+  "Favorite": var.$orange,
+  "Twitter": var.$blue,
+);
+
+// 클래스 만들어냄
+@each $color, $color-value in $colors {// for in 문 같이
+  .accent#{$color} {
+    color: $color-value;
+  }
+}
+
+// 스프라이트 배경이미지
+.sprite {
+  min-height: rem(60px);
+  background-image: url(./../assets/images/sprite_main.png);
+  background-repeat: no-repeat;
+  padding-left: rem(64px);
+
+  $sprites: Book, Board, News, Favorite, Twitter;
+  $x: 0;
+  $y: 0;
+  @each $sprite in $sprites { // 믹스인이 아니기에 짜는 순간 만들어짐
+    &#{$sprite} {
+      background-position: $x $y;
+    }
+    $y: $y - 115px; // 이미지 움직이기
+  }
+}

@@ -1,6 +1,11 @@
 @use "./base";
-@use "./utils" as *; 
+@use "./layout";
+@use "./pages";
 
+
+
+/*
+// @use "./utils" as *; 
 .appFooter {
   // @include flexbox($j: center);
 
@@ -29,7 +34,13 @@
 
   // @include marginX(24px);
 
-  @include boxSizeMax;
+  // @include boxSizeMax;
+
+  // @include responsIframe(4, 3);
+
+  // @include clearFix;
+
+  @include bgRetina(logo, png);
 }
 
 // 이렇게 쓰지마라
@@ -38,3 +49,4 @@
 //     background: pink;
 //   }
 // }
+*/

@@ -1,3 +1,4 @@
+@use "sass:math"; // div쓰려고
 @use "./unit" as *; // alias줘라
 @use "./variable" as *;
 
@@ -28,7 +29,6 @@
 }
 
 
-
 // Position 관련 믹스인 // 믹스인 안에 믹스인 사용할 수 있음
 @mixin posCenterX($pos: absolute) {
   position: $pos;
@@ -47,9 +47,91 @@
   transform: translate(-50%, -50%);
 }
 
+/*
+// Position 관련 믹스인
+@mixin pos($pos: absolute, $t: initial, $r: initial, $b: initial, $l: initial) {
+  position: $pos;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+}
+
+@mixin posCenterX($pos: absolute) {
+  @include pos;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin posCenterY() {
+  @include pos;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin posCenter($pos: absolute) {
+  @include pos;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+*/
 
 // 박스의 최소 및 최대 너비를 설정하기 위한 믹스인
 @mixin boxSizeMax($max: $container-width) {
   max-width: $max;
   @include autoMargin;
+}
+
+// 말줄임표 믹스인
+@mixin textEllipis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+// 반응형 iframe 
+@mixin responsIframe($w: 16, $h: 9) {
+  position: relative;
+  width: 100%;
+  padding-top: math.div($h, $w) * 100%; // 56.25%
+  height: 0 !important;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+// Float 해제를 위한 clear 스타일 ---------------------------------------------------- /
+@mixin clearFix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+
+// 고해상도 디스플레이를 위한 배경이미지 관련 믹스인 ---------------------------------------------------- /
+@mixin bgRetina($file, $type) {
+  background-image: url("./../assets/images/" + $file + "." + $type); // 배포할 때는 절대 경로로 해라 / path도 변수로 줄 수 있음
+  background-repeat: no-repeat;
+  background-size: 100% 100%; // 2배 짜리 이미지가 들어올 경우 대비
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi) {
+    & { // 기존 선택자 그대로
+      background-image: url("./../assets/images/" + $file + "@2x." + $type);
+    }
+  }
+}
+
+// 텍스트 스타일 믹스인
+@mixin textStyle($size) {
+  font-size: rem($size);
+  letter-spacing: -0.02em;
+  // line-height: 1.5;
 }
