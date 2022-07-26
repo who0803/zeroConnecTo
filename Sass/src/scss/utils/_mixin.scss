@@ -1,1 +1,55 @@
-// mixin.scss
+@use "./unit" as *; // alias줘라
+@use "./variable" as *;
+
+// 여백관련 믹스인
+// margin 관련 믹스인
+@mixin autoMargin($marginX: auto) {
+  margin-left: $marginX;
+  margin-right: $marginX;
+}
+@mixin marginX($marginX: 0) {
+  margin-left: rem($marginX);
+  margin-right: rem($marginX);
+}
+@mixin marginY($marginY: 0) {
+  margin-top: rem($marginY);
+  margin-bottom: rem($marginY);
+}
+
+// padding 관련 믹스인
+@mixin paddingY($paddingY: 0) {
+  padding-top: rem($paddingY);
+  padding-bottom: rem($paddingY);
+}
+
+@mixin paddingX($paddingX: 0) {
+  padding-left: rem($paddingX);
+  padding-right: rem($paddingX);
+}
+
+
+
+// Position 관련 믹스인 // 믹스인 안에 믹스인 사용할 수 있음
+@mixin posCenterX($pos: absolute) {
+  position: $pos;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin posCenterY($pos: absolute) {
+  position: $pos;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin posCenter($pos: absolute) {
+  position: $pos;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+// 박스의 최소 및 최대 너비를 설정하기 위한 믹스인
+@mixin boxSizeMax($max: $container-width) {
+  max-width: $max;
+  @include autoMargin;
+}

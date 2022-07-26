@@ -1,16 +1,35 @@
 @use "./base";
-@use "./utils" as *;
+@use "./utils" as *; 
 
 .appFooter {
   // @include flexbox($j: center);
 
   // 미디어 쿼리 이렇게 해라
-  @include mobile{  // 콘텐트 영역
-    background: yellow;
-  }
-  @include desktop {
-    background: skyblue;
-  }
+  // @include mobile{  // 콘텐트 영역
+  //   background: yellow;
+  // }
+  // @include desktop {
+  //   background: skyblue;
+  // }
+
+
+  // @include media(mobile) {
+  //   background: lime;
+  // }
+  // @include media(desktop) {
+  //   background: orange;
+  // }
+
+
+
+  // @include respond-until(lg) {
+  //   background: yellow;
+  // }
+
+
+  // @include marginX(24px);
+
+  @include boxSizeMax;
 }
 
 // 이렇게 쓰지마라
