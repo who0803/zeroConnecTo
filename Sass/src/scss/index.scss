@@ -1,1 +1,21 @@
-// index.scss
+@use "./base";
+@use "./utils" as *;
+
+.appFooter {
+  // @include flexbox($j: center);
+
+  // 미디어 쿼리 이렇게 해라
+  @include mobile{  // 콘텐트 영역
+    background: yellow;
+  }
+  @include desktop {
+    background: skyblue;
+  }
+}
+
+// 이렇게 쓰지마라
+// @include mobile{
+//   .appFooter{
+//     background: pink;
+//   }
+// }
