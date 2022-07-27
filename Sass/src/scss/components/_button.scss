@@ -23,7 +23,6 @@
 .button--burger {
   width: rem(32px);
   height: rem(32px);
-  background: blue;
   position: relative; // 앱솔이 아님 그래서 부모가 랠러티브 아님. 이걸 가져다 쓰는 곳이 뭘할지 모르기에
 
   &BarTop,
