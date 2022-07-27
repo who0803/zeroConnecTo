@@ -17,6 +17,17 @@
     @include boxSizeMax;
     background: yellow;
   }
+  .buttonWrapper {
+    @include mobile {
+      // 위치지정
+      // .button--burger {}  // 여기다 쓰지 말아라
+      @include posRight(52px, 20px);
+      padding: rem(4px);
+    }
+    @include desktop {
+      display: none;
+    }
+  }
 }
 
 // 로고
@@ -66,3 +77,4 @@
     margin-left: rem(16px);
   }
 }
+

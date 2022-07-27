@@ -30,6 +30,16 @@
 
 
 // Position 관련 믹스인 // 믹스인 안에 믹스인 사용할 수 있음
+@mixin posLeft($t, $l, $pos: absolute) {
+  position: $pos;
+  top: rem($t);
+  left: rem($l);
+}
+@mixin posRight($t, $r, $pos: absolute) {
+  position: $pos;
+  top: rem($t);
+  right: rem($r);
+}
 
 @mixin posCenterX($pos: absolute) {
   position: $pos;
@@ -47,11 +57,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+//transform 관련 믹스인
+@mixin transRotate($tx: -50%,  $ty: -50%, $rotate: 0) {
+  top: 50%;
+  transform: translate($tx, $ty) rotate(#{$rotate} + "deg");
+}
 
-/*
 // Position 관련 믹스인
 // 이거 따로 쓰면 유용
-@mixin pos($pos: absolute, $t: initial, $r: initial, $b: initial, $l: initial) {
+/*@mixin pos($pos: absolute, $t: initial, $r: initial, $b: initial, $l: initial) {
   position: $pos;
   top: $t;
   right: $r;

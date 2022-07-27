@@ -362,10 +362,7 @@ legend {
   margin: -1px;
 }
 
-/*
-// Position 관련 믹스인
-// 이거 따로 쓰면 유용
-@mixin pos($pos: absolute, $t: initial, $r: initial, $b: initial, $l: initial) {
+/*@mixin pos($pos: absolute, $t: initial, $r: initial, $b: initial, $l: initial) {
   position: $pos;
   top: $t;
   right: $r;
@@ -443,6 +440,52 @@ legend {
   background: #988574;
   color: #fff;
 }
+.button--none {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.buttonWrapper {
+  overflow: hidden;
+}
+
+.button--burger {
+  width: 2rem;
+  height: 2rem;
+  background: blue;
+  position: relative;
+}
+.button--burgerBarTop, .button--burgerBarMiddle, .button--burgerBarBottom {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  width: 100%;
+  height: 20%;
+  background: #fff;
+  border-radius: 0.5rem;
+  transition: all 350ms;
+}
+.button--burgerBarMiddle {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.button--burgerBarBottom {
+  top: 100%;
+  transform: translateY(-100%);
+}
+.is--active .button--burgerBarTop {
+  top: 50%;
+  transform: translate(0%, -50%) rotate(45deg);
+}
+.is--active .button--burgerBarMiddle {
+  top: 50%;
+  transform: translate(-120%, -50%) rotate(0deg);
+}
+.is--active .button--burgerBarBottom {
+  top: 50%;
+  transform: translate(0%, -50%) rotate(-45deg);
+}
 
 .formInput__input {
   -webkit-appearance: none;
@@ -477,6 +520,19 @@ legend {
     margin-left: auto;
     margin-right: auto;
     background: yellow;
+  }
+}
+@media (max-width: 767px) {
+  .appHeader .buttonWrapper {
+    position: absolute;
+    top: 3.25rem;
+    right: 1.25rem;
+    padding: 0.25rem;
+  }
+}
+@media (min-width: 768px) {
+  .appHeader .buttonWrapper {
+    display: none;
   }
 }
 
