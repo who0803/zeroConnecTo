@@ -39,6 +39,70 @@
       grid-area: twitter;
     }
   }
-  
 }
 
+// .home > section, .home > article {
+//   @include flexbox(column);
+//   gap: rem(16px);
+// }
+.book{
+  &__cover{
+    @include boxCenter(70%);
+    text-align: center;
+  }
+  &__coverCaption{
+    margin-top: rem(16px);
+  }
+  &__info{
+    @include marginY(16px);
+    dt:first-child {
+      margin-right: rem(8px);
+    }
+    @include flexbox($j: center, $w: wrap);
+  }
+  .ratingStar{
+    width: 100%;
+    text-align: center;
+    font-size: rem(32px);
+  }
+}
+
+
+
+.board{
+  position: relative;
+  &__more{
+    @include posRight(0, 0);
+  }
+}
+
+
+.favorite{
+  @include mobile {
+    &__link::after{
+      content: attr(data-tooltip);
+      color: $accent-favorite;
+      font-size: rem(12px);
+    }
+  }
+}
+.twitter{ 
+  &__userProfile{
+    shape-outside: circle(50%);
+    float: right;
+    width: 20%;
+    max-width: 110px;
+    height: 110px;
+    object-fit: cover;
+    object-position: 30% 40%;
+  }
+  &__userProfileImage {
+    border-radius: 50%;
+  }
+
+}
+
+
+.iframeWrapper {
+  @include responsIframe;
+}

@@ -65,14 +65,14 @@
 
 // Position 관련 믹스인
 // 이거 따로 쓰면 유용
-/*@mixin pos($pos: absolute, $t: initial, $r: initial, $b: initial, $l: initial) {
+@mixin pos($pos: absolute, $t: initial, $r: initial, $b: initial, $l: initial) {
   position: $pos;
   top: $t;
   right: $r;
   bottom: $b;
   left: $l;
 }
-
+/*
 @mixin posCenterX($pos: absolute) {
   @include pos($pos);
   left: 50%;
@@ -94,6 +94,10 @@
 // 박스의 최대 너비를 설정하기 위한 믹스인
 @mixin boxSizeMax($max: $container-width) {
   max-width: $max;
+  @include autoMargin;
+}
+@mixin boxCenter($width: 100%) {
+  width: $width;
   @include autoMargin;
 }
 

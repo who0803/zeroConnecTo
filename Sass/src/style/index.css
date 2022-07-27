@@ -362,14 +362,7 @@ legend {
   margin: -1px;
 }
 
-/*@mixin pos($pos: absolute, $t: initial, $r: initial, $b: initial, $l: initial) {
-  position: $pos;
-  top: $t;
-  right: $r;
-  bottom: $b;
-  left: $l;
-}
-
+/*
 @mixin posCenterX($pos: absolute) {
   @include pos($pos);
   left: 50%;
@@ -653,6 +646,30 @@ legend {
   }
 }
 
+.appFooter {
+  background: #38302e;
+  color: #fff;
+  padding: 1.5rem;
+}
+@media (min-width: 768px) {
+  .appFooter {
+    text-align: center;
+  }
+}
+
+.address {
+  margin-bottom: 1rem;
+}
+@media (max-width: 767px) {
+  .address {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: nowrap;
+  }
+}
+
 [class*=__title] {
   display: flex;
   flex-direction: column;
@@ -713,6 +730,77 @@ legend {
   .home .twitter {
     grid-area: twitter;
   }
+}
+
+.book__cover {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.book__coverCaption {
+  margin-top: 1rem;
+}
+.book__info {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+.book__info dt:first-child {
+  margin-right: 0.5rem;
+}
+.book .ratingStar {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.board {
+  position: relative;
+}
+.board__more {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+}
+
+@media (max-width: 767px) {
+  .favorite__link::after {
+    content: attr(data-tooltip);
+    color: #eea60a;
+    font-size: 0.75rem;
+  }
+}
+
+.twitter__userProfile {
+  shape-outside: circle(50%);
+  float: right;
+  width: 20%;
+  max-width: 110px;
+  height: 110px;
+  object-fit: cover;
+  object-position: 30% 40%;
+}
+.twitter__userProfileImage {
+  border-radius: 50%;
+}
+
+.iframeWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  height: 0 !important;
+}
+.iframeWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /*
