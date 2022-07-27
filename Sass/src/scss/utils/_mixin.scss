@@ -4,9 +4,9 @@
 
 // 여백관련 믹스인
 // margin 관련 믹스인
-@mixin autoMargin($marginX: auto) {
-  margin-left: $marginX;
-  margin-right: $marginX;
+@mixin autoMargin {
+  margin-left: auto;
+  margin-right: auto;
 }
 @mixin marginX($marginX: 0) {
   margin-left: rem($marginX);
@@ -30,6 +30,7 @@
 
 
 // Position 관련 믹스인 // 믹스인 안에 믹스인 사용할 수 있음
+
 @mixin posCenterX($pos: absolute) {
   position: $pos;
   left: 50%;
@@ -49,6 +50,7 @@
 
 /*
 // Position 관련 믹스인
+// 이거 따로 쓰면 유용
 @mixin pos($pos: absolute, $t: initial, $r: initial, $b: initial, $l: initial) {
   position: $pos;
   top: $t;
@@ -58,24 +60,24 @@
 }
 
 @mixin posCenterX($pos: absolute) {
-  @include pos;
+  @include pos($pos);
   left: 50%;
   transform: translateX(-50%);
 }
-@mixin posCenterY() {
-  @include pos;
+@mixin posCenterY($pos: absolute) {
+  @include pos($pos);
   top: 50%;
   transform: translateY(-50%);
 }
 @mixin posCenter($pos: absolute) {
-  @include pos;
+  @include pos($pos);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 */
 
-// 박스의 최소 및 최대 너비를 설정하기 위한 믹스인
+// 박스의 최대 너비를 설정하기 위한 믹스인
 @mixin boxSizeMax($max: $container-width) {
   max-width: $max;
   @include autoMargin;

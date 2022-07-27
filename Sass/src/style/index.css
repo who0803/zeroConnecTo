@@ -364,6 +364,7 @@ legend {
 
 /*
 // Position 관련 믹스인
+// 이거 따로 쓰면 유용
 @mixin pos($pos: absolute, $t: initial, $r: initial, $b: initial, $l: initial) {
   position: $pos;
   top: $t;
@@ -373,17 +374,17 @@ legend {
 }
 
 @mixin posCenterX($pos: absolute) {
-  @include pos;
+  @include pos($pos);
   left: 50%;
   transform: translateX(-50%);
 }
-@mixin posCenterY() {
-  @include pos;
+@mixin posCenterY($pos: absolute) {
+  @include pos($pos);
   top: 50%;
   transform: translateY(-50%);
 }
 @mixin posCenter($pos: absolute) {
-  @include pos;
+  @include pos($pos);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -431,7 +432,32 @@ legend {
   background-position: 0 -460px;
 }
 
+.button {
+  border: 0;
+  padding: 0.25rem 1rem;
+  border-radius: 0.25rem;
+  height: 2rem;
+  font-size: 0.875rem;
+}
+.button--fill {
+  background: #988574;
+  color: #fff;
+}
+
+.formInput__input {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid #767676;
+  border-radius: 0.25rem;
+  height: 2rem;
+  padding: 0.25rem 0.5rem;
+}
+
 .appHeader {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -491,6 +517,9 @@ legend {
   }
 }
 
+.searchForm {
+  margin-top: 1rem;
+}
 .searchForm__group {
   display: flex;
   flex-direction: row;
@@ -510,6 +539,9 @@ legend {
 }
 .searchForm .formInput__input {
   width: 100%;
+}
+.searchForm .button--primary {
+  margin-left: 1rem;
 }
 
 /*
@@ -557,6 +589,7 @@ legend {
 //     background: pink;
 //   }
 // }
+
 */
 
 /*# sourceMappingURL=index.css.map */

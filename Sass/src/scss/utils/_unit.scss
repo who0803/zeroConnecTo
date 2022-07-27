@@ -10,6 +10,7 @@ $rootUnit: 16px !default;
 }
 
 // px을 rem 단위로 변경하는 함수 ------------------------------------------------------- /
+// 단위가 없는 상황에서도 잘 돌아가게
 @function rem($value, $base: $rootUnit) {
   @return (removeUnit(math.div($value, $base))) * 1rem;
 }
