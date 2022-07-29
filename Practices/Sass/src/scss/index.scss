@@ -1,18 +1,26 @@
-// @import "./reset";  //파일명만
-@use "./utils" as *; 
-// @use "./utils/var" as *;  // 원래 변수이름 그대로 사용하겠다는 뜻
+// // @import "./reset";  //파일명만
+// // @use "./utils" as *; 
+// // @use "./utils/var" as *;  // 원래 변수이름 그대로 사용하겠다는 뜻
+// @import '@euid/scss-mixins';
+// @include normalize;
+// body {
+//   font-size: rem(24px);
+// }
 
+// .box {
+//   // width: var.$w;
+//   // margin-left: var.$w;
+//   // background: var.$color-primary url(var.$url-images + "bg.jpg");
+  
+//   // width: $w;
+//   // margin-left: $w;
+//   // background: $color-primary url($url-images + "bg.jpg");
+// }
+// .box a {
+//   font-size: 100px;
+//   text-decoration: none;
+//   color: teal;
+// }
 
-.box {
-  // width: var.$w;
-  // margin-left: var.$w;
-  // background: var.$color-primary url(var.$url-images + "bg.jpg");
-  width: $w;
-  margin-left: $w;
-  background: $color-primary url($url-images + "bg.jpg");
-}
-.box a {
-  font-size: 100px;
-  text-decoration: none;
-  color: teal;
-}
+@use "./component/button";
+@use "./component/card";

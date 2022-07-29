@@ -1,0 +1,7 @@
+@use './../utils/var';
+@forward './../utils/var' as v-*; // var를 던져줌 그럼 카드에서 사용가능
+
+.button {
+  padding: var.$spacing;
+}
+$spacing: 20px;
